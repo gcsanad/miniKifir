@@ -24,7 +24,7 @@ namespace Felvetelizok
     public partial class MainWindow : Window
     {
         ObservableCollection<Diak> diakok = new ObservableCollection<Diak>();
-
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -41,6 +41,8 @@ namespace Felvetelizok
                 }
                 dgFelvetelizok.ItemsSource = diakok;
             }
+
+
         }
 
         private void btnExport_Click(object sender, RoutedEventArgs e)
@@ -78,6 +80,12 @@ namespace Felvetelizok
         {
             Felvetel felvetel = new Felvetel();
             felvetel.ShowDialog();
+        }
+
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyType == typeof(System.DateTime))
+                (e.Column as DataGridTextColumn).Binding.StringFormat = "yyyy/MM/dd";
         }
     }
 }

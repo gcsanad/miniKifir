@@ -30,6 +30,7 @@ namespace Felvetelizok
         string nev;
         string email;
         DateTime szuletesiDatum;
+
         string ertesitesiCim;
         int matekPontszam, magyarPontszam;
 
@@ -68,7 +69,7 @@ namespace Felvetelizok
 
         public string CSVSortAdVissza()
         {
-            return $"{OM_Azonosito};{Neve};{Email};{SzuletesiDatum};{ErtesitesiCime};{Matematika};{Magyar}";
+            return $"{OM_Azonosito};{Neve};{Email};{SzuletesiDatum.ToString("yyyy/MM/dd")};{ErtesitesiCime};{Matematika};{Magyar}";
         }
 
     }
