@@ -5,7 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Felvetelizok"
         mc:Ignorable="d"
-        Title="Felvetel" Height="450" Width="800">
+        Title="Felvetel" Height="550" Width="300">
     <Grid>
+        <StackPanel>
+            <Label  Width="150" FontSize="13" FontWeight="Bold" Content="OM Azonosító:"/>
+            <TextBox x:Name="txtOMAzon" Width="150" FontSize="13"/>
+            <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Tanuló neve:"/>
+            <TextBox x:Name="txtNev" Width="150" FontSize="13"/>
+            <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Értesítési cím:"/>
+            <TextBox x:Name="txtCim" Width="150" FontSize="13"/>
+            <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Email:"/>
+            <TextBox x:Name="txtEmail" Width="150" FontSize="13"/>
+            <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Születési dátum:"/>
+            <DatePicker Name="dpDatum" Width="150"/>
+            <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Matematika:"/>
+            <TextBox x:Name="txtMatek" Width="150" FontSize="13"/>
+            <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Magyar:"/>
+            <TextBox x:Name="txtMagyar" Width="150" FontSize="13"/>
+            <Button Width="150" Height="30" Margin="0 20 0 0" Content="Felvétel" FontSize="15" FontWeight="Bold"/>
+        </StackPanel>
     </Grid>
 </Window>

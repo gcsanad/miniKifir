@@ -6,38 +6,70 @@ using System.Threading.Tasks;
 
 namespace Felvetelizok
 {
-    class Diak
+
+    public interface IFelvetelizo
+    {
+
+        String OM_Azonosito { get; set; }
+        String Neve { get; set; }
+        String ErtesitesiCime { get; set; }
+        String Email { get; set; }
+        DateTime SzuletesiDatum { get; set; }
+        int Matematika { get; set; }
+        int Magyar { get; set; }
+
+        String CSVSortAdVissza();
+
+        void ModositCSVSorral(String csvString);
+    }
+
+
+    class Diak : IFelvetelizo
     {
         string omAzonosito;
         string nev;
         string email;
-        string szuletesiDatum;
+        DateTime szuletesiDatum;
         string ertesitesiCim;
         int matekPontszam, magyarPontszam;
 
         public Diak(string sor)
         {
             string[] splitelt = sor.Split(';');
-            omAzonosito = splitelt[0];
-            nev = splitelt[1];
-            email = splitelt[2];
-            szuletesiDatum = splitelt[3];
-            ertesitesiCim = splitelt[4];
-            matekPontszam = splitelt[5] != "NULL" ? Int32.Parse(splitelt[5]) : -1;
-            magyarPontszam = splitelt[6] != "NULL" ? Int32.Parse(splitelt[6]) : -1;
+            OM_Azonosito = splitelt[0];
+            Neve = splitelt[1];
+            Email = splitelt[2];
+            SzuletesiDatum = DateTime.Parse(splitelt[3]);
+            ErtesitesiCime = splitelt[4];
+            Matematika = splitelt[5] != "NULL" ? Int32.Parse(splitelt[5]) : -1;
+            Magyar = splitelt[6] != "NULL" ? Int32.Parse(splitelt[6]) : -1;
         }
 
-        public string OMazonosito { get => omAzonosito; }
-        public string Nev { get => nev; }
-        public string Email { get => email; }
-        public string SzuletesiDatum { get => szuletesiDatum; }
-        public string ErtesitesiCim { get => ertesitesiCim; }
-        public int MatekPontszam { get => matekPontszam; }
-        public int MagyarPontszam { get => magyarPontszam; }
-
-        public override string ToString()
+        public void ModositCSVSorral(String csvString)
         {
-            return $"{omAzonosito};{nev};{email};{szuletesiDatum};{ertesitesiCim};{matekPontszam};{magyarPontszam}";
+            string[] splitelt = csvString.Split(';');
+            OM_Azonosito = splitelt[0];
+            Neve = splitelt[1];
+            Email = splitelt[2];
+            SzuletesiDatum = DateTime.Parse(splitelt[3]);
+            ErtesitesiCime = splitelt[4];
+            Matematika = splitelt[5] != "NULL" ? Int32.Parse(splitelt[5]) : -1;
+            Magyar = splitelt[6] != "NULL" ? Int32.Parse(splitelt[6]) : -1;
         }
+      
+
+        public string OM_Azonosito { get => omAzonosito; set => omAzonosito = value; }
+        public string Neve { get => nev; set => nev = value; }
+        public string Email { get => email; set => email = value; }
+        public DateTime SzuletesiDatum { get => szuletesiDatum; set => szuletesiDatum = value; }
+        public string ErtesitesiCime { get => ertesitesiCim; set => ertesitesiCim = value; }
+        public int Matematika { get => matekPontszam; set => matekPontszam = value; }
+        public int Magyar { get => magyarPontszam; set => magyarPontszam = value; }
+
+        public string CSVSortAdVissza()
+        {
+            return $"{OM_Azonosito};{Neve};{Email};{SzuletesiDatum};{ErtesitesiCime};{Matematika};{Magyar}";
+        }
+
     }
 }

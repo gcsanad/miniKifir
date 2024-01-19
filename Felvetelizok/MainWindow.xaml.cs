@@ -54,7 +54,7 @@ namespace Felvetelizok
                 StreamWriter mentes = new StreamWriter(sfd.FileName);
                 foreach (var item in diakok)
                 {
-                    mentes.WriteLine(item.ToString());
+                    mentes.WriteLine(item.CSVSortAdVissza());
                 }
                 mentes.Close();
             }
