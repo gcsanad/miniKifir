@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel>
             <Label  Width="150" FontSize="13" FontWeight="Bold" Content="OM Azonosító:"/>
-            <TextBox x:Name="txtOMAzon" Width="150" FontSize="13"/>
+            <TextBox x:Name="txtOMAzon" Width="150" FontSize="13" MaxLength="11" PreviewTextInput="CsakSzamokBeirasa" />
             <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Tanuló neve:"/>
             <TextBox x:Name="txtNev" Width="150" FontSize="13"/>
             <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Értesítési cím:"/>
@@ -19,10 +19,10 @@
             <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Születési dátum:"/>
             <DatePicker Name="dpDatum" Width="150"/>
             <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Matematika:"/>
-            <TextBox x:Name="txtMatek" Width="150" FontSize="13"/>
+            <TextBox x:Name="txtMatek" Width="150" FontSize="13" PreviewTextInput="CsakSzamokBeirasa"/>
             <Label  Width="150" FontSize="13" FontWeight="Bold" Content="Magyar:"/>
-            <TextBox x:Name="txtMagyar" Width="150" FontSize="13"/>
-            <Button Width="150" Height="30" Margin="0 20 0 0" Content="Felvétel" FontSize="15" FontWeight="Bold"/>
+            <TextBox x:Name="txtMagyar" Width="150" FontSize="13" PreviewTextInput="CsakSzamokBeirasa"/>
+            <Button x:Name="btnFelvetel" Width="150" Height="30" Margin="0 20 0 0" Content="Felvétel" FontSize="15" FontWeight="Bold" Click="btnFelvetel_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -16,6 +16,7 @@ using System.IO;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
 
+
 namespace Felvetelizok
 {
     /// <summary>
@@ -23,8 +24,7 @@ namespace Felvetelizok
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Diak> diakok = new ObservableCollection<Diak>();
-        
+        internal ObservableCollection<Diak> diakok = new ObservableCollection<Diak>();
         public MainWindow()
         {
             InitializeComponent();
@@ -39,7 +39,9 @@ namespace Felvetelizok
                 {
                     diakok.Add(new Diak(sor));
                 }
+
                 dgFelvetelizok.ItemsSource = diakok;
+                
             }
 
 
@@ -80,6 +82,7 @@ namespace Felvetelizok
         {
             Felvetel felvetel = new Felvetel();
             felvetel.ShowDialog();
+            
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
