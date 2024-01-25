@@ -20,7 +20,7 @@
                     <DataGridTextColumn Header="OM_Azon" Width="70" Binding="{Binding OM_Azonosito}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Neve" Width="90" Binding="{Binding Neve}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Email" Width="110" Binding="{Binding Email}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="SzuletesiDatum" Width="110" Binding="{Binding SzuletesiDatum}"></DataGridTextColumn>
+                    <DataGridTextColumn x:Name="dgtcSzuletes" Header="SzuletesiDatum" Width="110" Binding="{Binding SzuletesiDatum}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Cím" Width="120" Binding="{Binding ErtesitesiCime}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Matek" Width="45" Binding="{Binding Matematika}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Magyar" Width="45" Binding="{Binding Magyar}"></DataGridTextColumn>

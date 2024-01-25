@@ -73,6 +73,7 @@ namespace Felvetelizok
                 }
             }
             dgFelvetelizok.ItemsSource = diakok;
+            dgtcSzuletes.Binding.StringFormat = "yyyy/MM/dd";
         }
 
         private void btnExport_Click(object sender, RoutedEventArgs e)
@@ -131,12 +132,6 @@ namespace Felvetelizok
             felvetel.ShowDialog();
 
             diakok.Add(ujDiak);      
-        }
-
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            if (e.PropertyType == typeof(System.DateTime))
-                (e.Column as DataGridTextColumn).Binding.StringFormat = "yyyy/MM/dd";
         }
 
         private void btnModosit_Click(object sender, RoutedEventArgs e)
