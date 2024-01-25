@@ -45,6 +45,7 @@ namespace Felvetelizok
                     {
                         diakok.Add(new Diak(sor));
                     }
+                    btnFelvesz.IsEnabled = true;
                 }
                 else
                 {
@@ -122,11 +123,14 @@ namespace Felvetelizok
 
         private void btnFelvesz_Click(object sender, RoutedEventArgs e)
         {
-            Felvetel felvetel = new Felvetel();
+            Diak ujDiak = new Diak();
+            Felvetel felvetel = new Felvetel(ujDiak);
+
             felvetel.Title = "Felvétel";
             felvetel.btnFelvetel.Visibility = Visibility.Visible;
             felvetel.ShowDialog();
-            
+
+            diakok.Add(ujDiak);      
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -136,12 +140,16 @@ namespace Felvetelizok
         }
 
         private void btnModosit_Click(object sender, RoutedEventArgs e)
-        {
-            Felvetel modosit = new Felvetel();
+        {         
             Diak valasztottDiak = (Diak)dgFelvetelizok.SelectedItem;
+            valasztottIndex = dgFelvetelizok.SelectedIndex;
+
+            Felvetel modosit = new Felvetel(valasztottDiak, true);
+
+
             modosit.btnModosit.Visibility = Visibility.Visible;
             modosit.Title = "Adat módosítása";
-            valasztottIndex = dgFelvetelizok.SelectedIndex;
+            
             modosit.txtCim.Text = valasztottDiak.ErtesitesiCime;
             modosit.txtEmail.Text = valasztottDiak.Email;
             modosit.txtMagyar.Text = valasztottDiak.Magyar.ToString();
@@ -152,6 +160,17 @@ namespace Felvetelizok
             modosit.dpDatum.Text = valasztottDiak.SzuletesiDatum.ToString();
             modosit.ShowDialog();
 
+            dgFelvetelizok.Items.Refresh();
+
+        }
+
+        private void dgFelvetelizok_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgFelvetelizok.SelectedIndex != -1)
+            {
+                btnModosit.IsEnabled = true;
+                btnTorles.IsEnabled = true;
+            }
         }
     }
 }

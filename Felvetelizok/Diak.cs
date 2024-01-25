@@ -24,7 +24,7 @@ namespace Felvetelizok
     }
 
 
-    class Diak : IFelvetelizo
+    public class Diak : IFelvetelizo
     {
         string omAzonosito;
         string nev;
@@ -44,6 +44,12 @@ namespace Felvetelizok
             ErtesitesiCime = splitelt[4];
             Matematika = splitelt[5] != "NULL" ? Int32.Parse(splitelt[5]) : -1;
             Magyar = splitelt[6] != "NULL" ? Int32.Parse(splitelt[6]) : -1;
+        }
+
+        public Diak()
+        {
+            Matematika = -1;
+            Magyar = -1;
         }
 
         public void ModositCSVSorral(String csvString)
