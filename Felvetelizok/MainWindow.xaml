@@ -20,13 +20,13 @@
             <Border BorderBrush="#171717" BorderThickness="1">
             <DataGrid CanUserAddRows="False" SelectionChanged="dgFelvetelizok_SelectionChanged" HorizontalContentAlignment="Center" Width="600" Height="250" FontSize="9.5" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle1}" Style="{DynamicResource DataGridStyle1}" x:Name="dgFelvetelizok"  Margin="10" AutoGenerateColumns="False" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="OM_Azon" Width="70" Binding="{Binding OM_Azonosito}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Neve" Width="90" Binding="{Binding Neve}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Email" Width="110" Binding="{Binding Email}"></DataGridTextColumn>
-                    <DataGridTextColumn x:Name="dgtcSzuletes" Header="SzuletésiDátum" Width="80" Binding="{Binding SzuletesiDatum, StringFormat=yyyy/MM/dd}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Cím" Width="155" Binding="{Binding ErtesitesiCime}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Matek" Width="45" Binding="{Binding Matematika}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Magyar" Width="45" Binding="{Binding Magyar}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="OM_Azon" Width="70" Binding="{Binding OM_Azonosito, Mode=OneWay}" ></DataGridTextColumn>
+                        <DataGridTextColumn Header="Neve" Width="90" Binding="{Binding Neve, Mode=OneWay}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Email" Width="110" Binding="{Binding Email, Mode=OneWay}"></DataGridTextColumn>
+                        <DataGridTextColumn x:Name="dgtcSzuletes" Header="SzuletésiDátum" Width="80" Binding="{Binding SzuletesiDatum, StringFormat=yyyy/MM/dd, Mode=OneWay}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Cím" Width="155" Binding="{Binding ErtesitesiCime, Mode=OneWay}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Matek" Width="45" Binding="{Binding Matematika, Mode=OneWay}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Magyar" Width="45" Binding="{Binding Magyar, Mode=OneWay}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             </Border>

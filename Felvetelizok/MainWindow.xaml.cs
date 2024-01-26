@@ -87,16 +87,17 @@ namespace Felvetelizok
                     var lista = new List<string>();
                     lista.Add(adatokSorai);
                     File.WriteAllLines(sfd.FileName, lista);
+                    MessageBox.Show("Sikeres mentés!");
                 }
                 else
                 {
                     File.WriteAllLines(sfd.FileName, diakok.Select(x => x.CSVSortAdVissza()));
+                    MessageBox.Show("Sikeres mentés!");
                 }
 
 
 
             }
-            MessageBox.Show("sikeres mentés");
         }
 
         private void btnTorles_Click(object sender, RoutedEventArgs e)

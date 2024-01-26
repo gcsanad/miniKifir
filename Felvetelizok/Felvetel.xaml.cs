@@ -144,7 +144,13 @@ namespace Felvetelizok
 
 
             //magyar hiba ellenorzes
-            if (int.Parse(txtMagyar.Text) > 50 || int.Parse(txtMagyar.Text) < -1)
+            if (txtMagyar.Text == "")
+            {
+                txtMagyar.BorderBrush = new SolidColorBrush(Colors.Red);
+                HibaUzenet += "A magyar pontszám mező nem lehet üres!\n";
+                vanHiba = true;
+            }
+            else if (int.Parse(txtMagyar.Text) > 50 || int.Parse(txtMagyar.Text) < -1)
             {
                 txtMagyar.BorderBrush = new SolidColorBrush(Colors.Red);
                 HibaUzenet += int.Parse(txtMagyar.Text) > 50 ? "A magyar pontszám nem lehet több 50-nél! \n" : "A magyar pontszám nem lehet kevesebb 0-nál! \n";
@@ -153,7 +159,13 @@ namespace Felvetelizok
 
 
             //matek hiba ellenorzes
-            if (int.Parse(txtMatek.Text) > 50 || int.Parse(txtMatek.Text) < -1)
+            if (txtMatek.Text == "")
+            {
+                txtMatek.BorderBrush = new SolidColorBrush(Colors.Red);
+                HibaUzenet += "A matek pontszám mező nem lehet üres\n!";
+                vanHiba = true;
+            }
+            else if (int.Parse(txtMatek.Text) > 50 || int.Parse(txtMatek.Text) < -1)
             {
                 txtMatek.BorderBrush = new SolidColorBrush(Colors.Red);
                 HibaUzenet += int.Parse(txtMatek.Text) > 50 ? "A matek pontszám nem lehet több 50-nél! \n" : "A matek pontszám nem lehet kevesebb 0-nál! \n";
@@ -164,7 +176,7 @@ namespace Felvetelizok
             {
                 MessageBox.Show(HibaUzenet, "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else
+            else if(vanHiba == false)
             {
                 ujDiak.OM_Azonosito = txtOMAzon.Text;
                 ujDiak.Neve = txtNev.Text;
@@ -282,7 +294,13 @@ namespace Felvetelizok
 
 
             //magyar hiba ellenorzes
-            if (int.Parse(txtMagyar.Text) > 50 || int.Parse(txtMagyar.Text) < -1)
+            if (txtMagyar.Text == "")
+            {
+                txtMagyar.BorderBrush = new SolidColorBrush(Colors.Red);
+                ModositasiHibaUzenet += "A matek pontszám mező nem lehet üres\n!";
+                vanModositasiHiba = true;
+            }
+            else if (int.Parse(txtMagyar.Text) > 50 || int.Parse(txtMagyar.Text) < -1)
             {
                 txtMagyar.BorderBrush = new SolidColorBrush(Colors.Red);
                 ModositasiHibaUzenet += int.Parse(txtMagyar.Text) > 50 ? "A magyar pontszám nem lehet több 50-nél! \n" : "A magyar pontszám nem lehet kevesebb 0-nál! \n";
@@ -291,7 +309,13 @@ namespace Felvetelizok
 
 
             //matek hiba ellenorzes
-            if (int.Parse(txtMatek.Text) > 50 || int.Parse(txtMatek.Text) < -1)
+            if (txtMatek.Text == "")
+            {
+                txtMatek.BorderBrush = new SolidColorBrush(Colors.Red);
+                ModositasiHibaUzenet += "A matek pontszám mező nem lehet üres\n!";
+                vanModositasiHiba = true;
+            }
+            else if (int.Parse(txtMatek.Text) > 50 || int.Parse(txtMatek.Text) < -1)
             {
                 txtMatek.BorderBrush = new SolidColorBrush(Colors.Red);
                 ModositasiHibaUzenet += int.Parse(txtMatek.Text) > 50 ? "A matek pontszám nem lehet több 50-nél! \n" : "A matek pontszám nem lehet kevesebb 0-nál! \n";
@@ -302,7 +326,7 @@ namespace Felvetelizok
             {
                 MessageBox.Show(ModositasiHibaUzenet, "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else
+            else if(vanModositasiHiba == false)
             {
                 modositandoDiak.OM_Azonosito = txtOMAzon.Text;
                 modositandoDiak.Neve = txtNev.Text;
