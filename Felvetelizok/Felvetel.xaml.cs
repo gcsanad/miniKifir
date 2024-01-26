@@ -75,6 +75,20 @@ namespace Felvetelizok
                 HibaUzenet += "A névnek legalább két tagból kell állnia! \n";
                 vanHiba = true;
             }
+            else
+            {
+                string[] szavak = txtNev.Text.Split(" ");
+                foreach (string szo in szavak)
+                {
+                    if (szo[0] != szo.ToUpper()[0])
+                    {
+                        txtNev.BorderBrush = new SolidColorBrush(Colors.Red);
+                        HibaUzenet += "A név minden tagjának nagybetűvel kell kezdődnie! \n";
+                        vanHiba = true;
+                        break;
+                    }
+                }
+            }
 
 
             //cim hiba ellenorzes
@@ -165,13 +179,6 @@ namespace Felvetelizok
         }
 
 
-
-        private void CsakSzamokBeirasa(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9+]");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
         private void btnModosit_Click(object sender, RoutedEventArgs e)
         {
             string ModositasiHibaUzenet = "";
@@ -204,6 +211,20 @@ namespace Felvetelizok
                 txtNev.BorderBrush = new SolidColorBrush(Colors.Red);
                 ModositasiHibaUzenet += "A névnek legalább két tagból kell állnia! \n";
                 vanModositasiHiba = true;
+            }
+            else
+            {
+                string[] szavak = txtNev.Text.Split(" ");
+                foreach (string szo in szavak)
+                {
+                    if (szo[0] != szo.ToUpper()[0])
+                    {
+                        txtNev.BorderBrush = new SolidColorBrush(Colors.Red);
+                        ModositasiHibaUzenet += "A név minden tagjának nagybetűvel kell kezdődnie! \n";
+                        vanModositasiHiba = true;
+                        break;
+                    }
+                }
             }
 
 
@@ -293,6 +314,20 @@ namespace Felvetelizok
 
                 Close();
             }
+        }
+
+
+
+        private void CsakSzamokBeirasa(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9+]");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void NoSzamokBeirasa(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("^[0-9+]");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void BorderVissza(object sender, RoutedEventArgs e)

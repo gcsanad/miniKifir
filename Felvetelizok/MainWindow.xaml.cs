@@ -36,16 +36,13 @@ namespace Felvetelizok
         {
 
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "CSV fájl (*.csv)|*.csv| Szöveges fájl (*.txt) | *.txt";
+            ofd.Filter = "CSV fájl (*.csv)|*.csv| JSON fájl (*.json) | *.json";
             if (ofd.ShowDialog() == true)
             {
+                var ut = System.IO.Path.GetExtension(ofd.FileName);
                 if (diakok.Count == 0)
                 {
-                    foreach (string sor in File.ReadAllLines(ofd.FileName).Skip(1))
-                    {
-                        diakok.Add(new Diak(sor));
-                    }
-                    btnFelvesz.IsEnabled = true;
+                    jsonVagyCsv(ut, ofd.FileName);
                 }
                 else
                 {
@@ -54,17 +51,11 @@ namespace Felvetelizok
                     if (Result == MessageBoxResult.Yes)
                     {
                         diakok.Clear();
-                        foreach (string sor in File.ReadAllLines(ofd.FileName).Skip(1))
-                        {
-                            diakok.Add(new Diak(sor));
-                        }
+                        jsonVagyCsv(ut, ofd.FileName);
                     }
                     else if (Result == MessageBoxResult.No)
                     {
-                        foreach (string sor in File.ReadAllLines(ofd.FileName).Skip(1))
-                        {
-                            diakok.Add(new Diak(sor));
-                        }
+                        jsonVagyCsv(ut, ofd.FileName);
                     }
                     else
                     {
@@ -73,7 +64,6 @@ namespace Felvetelizok
                 }
             }
             dgFelvetelizok.ItemsSource = diakok;
-            dgtcSzuletes.Binding.StringFormat = "yyyy/MM/dd";
         }
 
         private void btnExport_Click(object sender, RoutedEventArgs e)
@@ -167,5 +157,29 @@ namespace Felvetelizok
                 btnTorles.IsEnabled = true;
             }
         }
+
+        private void jsonVagyCsv(string ut, string fajlNeve)
+        {
+            if (ut.ToLower() == ".csv")
+            {
+
+                foreach (string sor in File.ReadAllLines(fajlNeve).Skip(1))
+                {
+                    diakok.Add(new Diak(sor));
+                }
+            }
+            else if (ut.ToLower() == ".json")
+            {
+
+                string beolvas = File.ReadAllText(fajlNeve);
+
+                var lista = JsonSerializer.Deserialize<List<Diak>>(beolvas);
+                foreach (var item in lista)
+                {
+                    diakok.Add(item);
+                }
+            }
+        }
+
     }
 }
