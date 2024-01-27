@@ -104,13 +104,20 @@ namespace Felvetelizok
         {
             if (dgFelvetelizok.SelectedIndex > 0)
             {
+                
+                while (dgFelvetelizok.SelectedItems.Count != 0)
+                {
                 diakok.RemoveAt(dgFelvetelizok.SelectedIndex);
+                }
                 MessageBox.Show("Sikeres törlés");
+                dgFelvetelizok.Items.Refresh();
             }
             else
             {
                 MessageBox.Show("Nincs kijelölve elem");
             }
+            
+            
         }
 
         private void btnFelvesz_Click(object sender, RoutedEventArgs e)
@@ -126,27 +133,35 @@ namespace Felvetelizok
         }
 
         private void btnModosit_Click(object sender, RoutedEventArgs e)
-        {         
-            Diak valasztottDiak = (Diak)dgFelvetelizok.SelectedItem;
-            valasztottIndex = dgFelvetelizok.SelectedIndex;
+        {
+            if (dgFelvetelizok.SelectedItems.Count > 1)
+            {
+                MessageBox.Show("Csak egy diák legyen kiválasztva a táblázatban!");
+            }
+            else
+            {
+                Diak valasztottDiak = (Diak)dgFelvetelizok.SelectedItem;
+                valasztottIndex = dgFelvetelizok.SelectedIndex;
 
-            Felvetel modosit = new Felvetel(valasztottDiak, true);
+                Felvetel modosit = new Felvetel(valasztottDiak, true);
 
 
-            modosit.btnModosit.Visibility = Visibility.Visible;
-            modosit.Title = "Adat módosítása";
+                modosit.btnModosit.Visibility = Visibility.Visible;
+                modosit.Title = "Adat módosítása";
             
-            modosit.txtCim.Text = valasztottDiak.ErtesitesiCime;
-            modosit.txtEmail.Text = valasztottDiak.Email;
-            modosit.txtMagyar.Text = valasztottDiak.Magyar.ToString();
-            modosit.txtMatek.Text = valasztottDiak.Matematika.ToString();
-            modosit.txtNev.Text = valasztottDiak.Neve;
-            modosit.txtOMAzon.Text = valasztottDiak.OM_Azonosito;
-            modosit.txtOMAzon.IsEnabled = false;
-            modosit.dpDatum.Text = valasztottDiak.SzuletesiDatum.ToString();
-            modosit.ShowDialog();
+                modosit.txtCim.Text = valasztottDiak.ErtesitesiCime;
+                modosit.txtEmail.Text = valasztottDiak.Email;
+                modosit.txtMagyar.Text = valasztottDiak.Magyar.ToString();
+                modosit.txtMatek.Text = valasztottDiak.Matematika.ToString();
+                modosit.txtNev.Text = valasztottDiak.Neve;
+                modosit.txtOMAzon.Text = valasztottDiak.OM_Azonosito;
+                modosit.txtOMAzon.IsEnabled = false;
+                modosit.dpDatum.Text = valasztottDiak.SzuletesiDatum.ToString();
+                modosit.ShowDialog();
 
-            dgFelvetelizok.Items.Refresh();
+                dgFelvetelizok.Items.Refresh();
+
+            }
 
         }
 
