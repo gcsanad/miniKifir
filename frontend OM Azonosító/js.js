@@ -99,27 +99,69 @@ let diakok = [
       "Magyar": 50
     }
   ]
-
-var comboBox = document.getElementById("selOmAzonosito");
-for (const azon of diakok) {
+  let kivalasztottDiakPontszama = -1;
+  const TABLAZAT = document.getElementById("tablazat")
+  
+  var comboBox = document.getElementById("selOmAzonosito");
+  for (const azon of diakok) {
     var opcio = document.createElement("option");
     opcio.value = azon.OM_Azonosito;
     opcio.text = azon.OM_Azonosito;
     comboBox.appendChild(opcio)
 }
 function Kereses(){
-    let vanTalalat = false
+
     for (const diak of diakok) {
         if (diak.OM_Azonosito == comboBox.value) {
             
             document.getElementById("kiiratas").innerHTML = `<span>OM Azonosítója:</span> ${diak.OM_Azonosito}<br><span>Diák neve:</span> ${diak.Neve}<br><span>Email címe:</span> ${diak.Email}<br><span>Születési dátuma:</span> ${diak.SzuletesiDatum.substring(0,10)}<br><span>Értesítési címe:</span> ${diak.ErtesitesiCime}<br><span>Matematika pontszáma:</span> ${diak.Matematika}<br><span>Magyar pontszáma:</span> ${diak.Magyar}`
             console.log("Mukodik")
+            kivalasztottDiakPontszama = diak.Magyar+diak.Matematika
+            console.log(kivalasztottDiakPontszama)
             vanTalalat = true
             break
         }
     }
-    if (vanTalalat == false) {
-        alert('Nincsen ilyen OM Azonosítóval rendelkező Diák!')
+
+
+    if (kivalasztottDiakPontszama == -1) {
+      alert("Még nincsen kiválasztva diák, akihez hasonlítani lehet!")
     }
+    else if (TABLAZAT.children.length > 1) {
+      while (TABLAZAT.children.length > 1) {
+       TABLAZAT.removeChild(TABLAZAT.lastChild)
+      }
+      for (const diak of diakok) {
+        if (diak.Magyar+diak.Matematika >= kivalasztottDiakPontszama && diak.OM_Azonosito != comboBox.value) {
+          let ujSor = document.createElement("tr")
     
+          let ujOM = document.createElement("td")
+          ujOM.innerText = diak.OM_Azonosito
+          ujSor.append(ujOM)
+          let ujNev = document.createElement("td")
+          ujNev.innerText = diak.Neve
+          ujSor.appendChild(ujNev)
+    
+          TABLAZAT.appendChild(ujSor)
+    
+        }
+      }
+    }
+    else{
+      for (const diak of diakok) {
+        if (diak.Magyar+diak.Matematika >= kivalasztottDiakPontszama && diak.OM_Azonosito != comboBox.value) {
+          let ujSor = document.createElement("tr")
+    
+          let ujOM = document.createElement("td")
+          ujOM.innerText = diak.OM_Azonosito
+          ujSor.append(ujOM)
+          let ujNev = document.createElement("td")
+          ujNev.innerText = diak.Neve
+          ujSor.appendChild(ujNev)
+    
+          TABLAZAT.appendChild(ujSor)
+    
+        }
+      }
+    }
 }

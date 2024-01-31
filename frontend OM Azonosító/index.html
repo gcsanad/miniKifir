@@ -6,12 +6,22 @@
     <title>Om_Azonosító alapján</title>
     <link rel="stylesheet" href="styleOM.css">
     <script defer src="js.js"></script>
+    
 </head>
 <body>
-    <div>
-        <div><span>OM Azonosító:</span> <select name="azonositok" id="selOmAzonosito"></select></div>  
-        <input type="button" value="Keres" id="keresesGomb" onclick="Kereses()">
+    <div class="wrapperOM">
+        <div class="cim"><span>OM Azonosító:</span> <select name="azonositok" id="selOmAzonosito" onchange="Kereses()"></select></div>  
+        
         <p id="kiiratas"></p>
+    </div>
+    <div class="wrapperTablazat">
+        <span class="cim">Több vagy egyenlő pontszámú a kiválasztott diákénal:</span>
+        <table id="tablazat" class="center">
+            <tr>
+                <th id="OM">OM</th>
+                <th id="Nev">Név</th>
+            </tr>
+        </table>
     </div>
     
 </body>
