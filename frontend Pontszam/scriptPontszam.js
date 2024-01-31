@@ -216,11 +216,17 @@ function Betoltes(){
 }
 Betoltes()
 
-document.getElementById("listaz").onclick = Listaz
+function Kiurit(){
+  while(TABLAZAT.children.length != 1){
+    TABLAZAT.removeChild(TABLAZAT.lastChild)
+  }
+}
+
+
 function Listaz(){
     let minPont = document.getElementById("minPont").value
 
-    for (let index = 2; index < TABLAZAT.children.length; index++) {
+    for (let index = 1; index < TABLAZAT.children.length; index++) {
         let osszPont = parseInt(TABLAZAT.children[index].children[2].innerText) + parseInt(TABLAZAT.children[index].children[3].innerText)
         
         if(osszPont < minPont){
@@ -231,3 +237,33 @@ function Listaz(){
         }
     }
 }
+document.getElementById("listaz").onclick = Listaz
+
+
+function NevSort(){
+  Kiurit()
+  DiakokAdataiTomb.sort((a,b) => (a.Neve > b.Neve) ? 1 : ((b.Neve > a.Neve) ? -1 : 0))
+  Betoltes()
+}
+document.getElementById("Nev").onclick = NevSort
+
+function MatekSort(){
+  Kiurit()
+  DiakokAdataiTomb.sort((a,b) => (a.Matematika > b.Matematika) ? 1 : ((b.Matematika > a.Matematika) ? -1 : 0))
+  Betoltes()
+}
+document.getElementById("Matek").onclick = MatekSort
+
+function MagyarSort(){
+  Kiurit()
+  DiakokAdataiTomb.sort((a,b) => (a.Magyar > b.Magyar) ? 1 : ((b.Magyar > a.Magyar) ? -1 : 0))
+  Betoltes()
+}
+document.getElementById("Magyar").onclick = MagyarSort
+
+function OsszPontSort(){
+  Kiurit()
+  DiakokAdataiTomb.sort((a,b) => (a.Magyar + a.Matematika > b.Magyar + b.Matematika) ? 1 : ((b.Magyar + b.Matematika > a.Magyar + a.Matematika) ? -1 : 0))
+  Betoltes()
+}
+document.getElementById("Osszesen").click = OsszPontSort

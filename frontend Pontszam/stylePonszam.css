@@ -15,14 +15,14 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#wrapper{
-    position: absolute;
+.wrapper{
     background-color: var(--outlineColor);
     color: var(--textColor);
     border:1px solid var(--borderColor);
-    padding: 3em;
 
-    left: 34vw;
+    padding: 3em;
+    margin: auto;
+    width: 30vw;
 }
 
 #adatbevitel{
@@ -36,19 +36,16 @@ body{
     border-left: 2px solid var(--borderColor);
     border-top: 2px solid var(--borderColor);
     border-bottom: 1px solid var(--borderColor);
+
+    text-align: center;
+
+    width: 30vw;
 }
-
-#adatok{
-    margin: auto;
-    position: relative;
-
-    left: 3.5em;
-}
-
 input{
     width: 5em;
     height: 1.5em;
     margin-right: 2em;
+    margin-left: 1em;
 
     background-color: #3d3d3d;
     color: var(--textColor);
@@ -58,7 +55,7 @@ input{
 button{
   align-items: center;
   background-color: initial;
-  background-image: linear-gradient(var(--tableAlteringColorLight), var(--headerColor));
+  background-image: linear-gradient(var(--headerColor), #111111);
   border-radius: 8px;
   border-width: 0px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
@@ -110,16 +107,9 @@ table{
     border-spacing: 0;
     border: 1px solid var(--borderColor);
     background-color: var(--buttonColor);
+    width: 30.2vw;
 }
 
-/*
-table tr:nth-child(odd){
-    background-color: var(--tableAlteringColorDark);
-}
-table tr:nth-child(even){
-    background-color: var(--tableAlteringColorLight);
-}
-*/
 tr{
     background-color: var(--buttonColor);
 }
@@ -130,7 +120,7 @@ th{
 }
 
 td{
-    height: 1.3em;
+    height: 1.5em;
 }
 
 td, th{
@@ -138,11 +128,6 @@ td, th{
     border-right: 1px solid var(--borderColor);
     border-bottom: 1px solid var(--borderColor);
     text-align: center;
-}
-
-#wrapper{
-    margin: auto;
-    border-radius: 10px;
 }
 
 #OM{
