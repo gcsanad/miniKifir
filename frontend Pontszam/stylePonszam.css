@@ -30,7 +30,7 @@ body{
     margin: auto;
     margin-bottom: 0;
     background-color: var(--buttonColor);
-    height: 3em;
+    height: 5em;
     padding-top: 1em;
 
     border-right: 2px solid var(--borderColor);
@@ -144,9 +144,6 @@ td, th{
     background-color: var(--backgroundColor);
 }
 
-#Cim{
-    width: 13em;
-}
 
 #Matek{
     width: 4em;
@@ -173,4 +170,17 @@ td, th{
 
 #Osszesen:hover{
     background-color: var(--backgroundColor);
+}
+
+#atlagok{
+    margin-top: 1em;
+}
+
+#matekAtlag{
+    display: inline-block;
+    margin-right: 3em;
+}
+
+#magyarAtlag{
+    display: inline-block;
 }

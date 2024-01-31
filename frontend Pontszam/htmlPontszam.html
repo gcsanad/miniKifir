@@ -12,17 +12,32 @@
 
         <div id="adatbevitel">
             <label for="minPont">Pontszám minimum: </label>
-            <input type="number" id="minPont" name="minPont" maxlength="3">     
-            <button id="listaz">Listáz</button>    
+            <input type="number" id="minPont" name="minPont" maxlength="3">  
+            
+            <label for="nevFilter">Név: </label>
+            <input type="text" id="nevFilter" name="nevFilter">
+
+            <button id="listaz">Listáz</button> 
+            <br>
+
+            <div id="atlagok">
+                <div id="matekAtlag">
+                    <span>Matek átlag: </span>
+                    <span id="matekAtlagSpan">0</span>   
+                </div>
+                
+                <div id="magyarAtlag">
+                    <span>Magyar átlag: </span>
+                    <span id="magyarAtlagSpan">0</span>
+                </div> 
+            </div>
+            
         </div>
 
         <table id="tablazat" class="center">
             <tr>
                 <th id="OM">OM</th>
                 <th id="Nev">Név</th>
-                <th id="Cim">Értesítési cím</th>
-                <th id="Email">Email</th>
-                <th id="Datum">Szuletési Dátum</th>
                 <th id="Matek">Matek</th>
                 <th id="Magyar">Magyar</th>
                 <th id="Osszesen">Összesen</th>

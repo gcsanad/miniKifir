@@ -185,6 +185,7 @@ DiakokAdataiTomb.sort((a,b) => (a.Neve > b.Neve) ? 1 : ((b.Neve > a.Neve) ? -1 :
 
 
 const TABLAZAT = document.getElementById("tablazat")
+var vanHiba = false
 
 
 function Betoltes(){
@@ -198,18 +199,6 @@ function Betoltes(){
     let ujNev = document.createElement("td")
     ujNev.innerText = diak.Neve
     ujSor.appendChild(ujNev)
-
-    let ujCim = document.createElement("td")
-    ujCim.innerText = diak.ErtesitesiCime
-    ujSor.appendChild(ujCim)
-
-    let ujEmail = document.createElement("td")
-    ujEmail.innerText = diak.Email
-    ujSor.appendChild(ujEmail)
-
-    let ujDatum = document.createElement("td")
-    ujDatum.innerText = diak.SzuletesiDatum.substring(0, 9)
-    ujSor.appendChild(ujDatum)
 
     let ujMatek = document.createElement("td")
     ujMatek.innerText = diak.Matematika
@@ -227,6 +216,7 @@ function Betoltes(){
 }  
 }
 Betoltes()
+Atlag()
 document.getElementById("Nev").style.color="#7de5ff"
 
 function Kiurit(){
@@ -235,11 +225,40 @@ function Kiurit(){
   }
 }
 
+function PontSzamSzures(pont){
+  for (let index = 1; index < TABLAZAT.children.length; index++) {
+    let osszPont = parseInt(TABLAZAT.children[index].children[2].innerText) + parseInt(TABLAZAT.children[index].children[3].innerText)
+    
+    if(osszPont < pont){
+        TABLAZAT.children[index].style.display="none"
+    }
+    if(osszPont >= pont){
+        TABLAZAT.children[index].style.display="table-row"
+    }
+}
 
+
+}
+
+function NevSzures(nev){
+    for (let index = 1; index < TABLAZAT.children.length; index++) {
+      if(!TABLAZAT.children[index].children[1].innerText.includes(nev)){
+          TABLAZAT.children[index].style.display="none"
+      }
+      if(TABLAZAT.children[index].children[1].innerText.includes(nev)){
+          TABLAZAT.children[index].style.display="table-row"
+      }
+    }
+}
+
+
+
+document.getElementById("listaz").onclick = Listaz
 function Listaz(){
     let minPont = document.getElementById("minPont").value
+    let nevFitler = document.getElementById("nevFilter").value
 
-    for (let index = 1; index < TABLAZAT.children.length; index++) {
+      for (let index = 1; index < TABLAZAT.children.length; index++) {
         let osszPont = parseInt(TABLAZAT.children[index].children[2].innerText) + parseInt(TABLAZAT.children[index].children[3].innerText)
         
         if(osszPont < minPont){
@@ -248,10 +267,22 @@ function Listaz(){
         if(osszPont >= minPont){
             TABLAZAT.children[index].style.display="table-row"
         }
-    }
-}
-document.getElementById("listaz").onclick = Listaz
+      }
+      
 
+      if(nevFitler != ""){
+        for (let index = 1; index < TABLAZAT.children.length; index++) {
+          if(!TABLAZAT.children[index].children[1].innerText.includes(nevFitler)){
+              TABLAZAT.children[index].style.display="none"
+          }
+          if(TABLAZAT.children[index].children[1].innerText.includes(nevFitler)){
+              TABLAZAT.children[index].style.display="table-row"
+          }
+        }
+      }
+
+      Atlag()
+}
 
 function NevSort(){
   Kiurit()
@@ -264,7 +295,6 @@ function NevSort(){
 }
 document.getElementById("Nev").onclick = NevSort
 
-
 function MatekSort(){
   Kiurit()
   DiakokAdataiTomb.sort((a,b) => (a.Matematika > b.Matematika) ? 1 : ((b.Matematika > a.Matematika) ? -1 : 0))
@@ -276,7 +306,6 @@ function MatekSort(){
 }
 document.getElementById("Matek").onclick = MatekSort
 
-
 function MagyarSort(){
   Kiurit()
   DiakokAdataiTomb.sort((a,b) => (a.Magyar > b.Magyar) ? 1 : ((b.Magyar > a.Magyar) ? -1 : 0))
@@ -287,3 +316,38 @@ function MagyarSort(){
   document.getElementById("Nev").style.color="#f5f5f5"
 }
 document.getElementById("Magyar").onclick = MagyarSort
+
+
+
+
+function Atlag(){
+  let magyarAtlag = 0
+  let matekAtlag = 0
+
+  let osszMagyar = 0
+  let magyarCount = 0
+
+  let osszMatek = 0
+  let matekCount = 0
+
+  for (let index = 1; index < TABLAZAT.children.length; index++) {
+
+    if (TABLAZAT.children[index].style.display != "none") {
+      if (TABLAZAT.children[index].children[2].innerText != "-1") {
+        matekCount++
+        osszMatek += parseInt(TABLAZAT.children[index].children[2].innerText)
+      }
+      if (TABLAZAT.children[index].children[3].innerText != "-1") {
+        magyarCount++
+        osszMagyar += parseInt(TABLAZAT.children[index].children[3].innerText)
+      }
+    }
+  }
+
+  matekAtlag = Math.round(osszMatek/matekCount *100) / 100
+  magyarAtlag = Math.round(osszMagyar/magyarCount *100) / 100
+  if (vanHiba == false) {
+    document.getElementById("matekAtlagSpan").innerText = magyarAtlag
+    document.getElementById("magyarAtlagSpan").innerText = matekAtlag
+  }
+}
