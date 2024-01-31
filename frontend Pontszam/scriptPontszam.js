@@ -321,9 +321,6 @@ document.getElementById("Magyar").onclick = MagyarSort
 
 
 function Atlag(){
-  let magyarAtlag = 0
-  let matekAtlag = 0
-
   let osszMagyar = 0
   let magyarCount = 0
 
@@ -344,10 +341,9 @@ function Atlag(){
     }
   }
 
-  matekAtlag = Math.round(osszMatek/matekCount *100) / 100
-  magyarAtlag = Math.round(osszMagyar/magyarCount *100) / 100
+
   if (vanHiba == false) {
-    document.getElementById("matekAtlagSpan").innerText = magyarAtlag
-    document.getElementById("magyarAtlagSpan").innerText = matekAtlag
+    document.getElementById("matekAtlagSpan").innerText = Math.round(osszMagyar/magyarCount *100) / 100
+    document.getElementById("magyarAtlagSpan").innerText = Math.round(osszMatek/matekCount *100) / 100
   }
 }
