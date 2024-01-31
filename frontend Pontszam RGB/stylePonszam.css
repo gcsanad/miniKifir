@@ -22,7 +22,7 @@ body{
 
     padding: 3em;
     margin: auto;
-    width: 35vw;
+    width: 50vw;
 }
 
 #adatbevitel{
@@ -39,7 +39,7 @@ body{
 
     text-align: center;
 
-    width: 30vw;
+    width: 50vw;
 }
 input{
     width: 5em;
@@ -107,7 +107,7 @@ table{
     border-spacing: 0;
     border: 1px solid var(--borderColor);
     background-color: var(--buttonColor);
-    width: 30.2vw;
+    width: 50.2vw;
 }
 
 tr{
@@ -174,8 +174,8 @@ td, th{
 .block {
 	position: relative;
 	margin: auto ;
-	width: 30vw;
-	height: 34vw;
+	width: 50vw;
+	height: 40vw;
 	background: linear-gradient(0deg, #000, #272727);
 }
 

@@ -199,6 +199,18 @@ function Betoltes(){
     ujNev.innerText = diak.Neve
     ujSor.appendChild(ujNev)
 
+    let ujCim = document.createElement("td")
+    ujCim.innerText = diak.ErtesitesiCime
+    ujSor.appendChild(ujCim)
+
+    let ujEmail = document.createElement("td")
+    ujEmail.innerText = diak.Email
+    ujSor.appendChild(ujEmail)
+
+    let ujDatum = document.createElement("td")
+    ujDatum.innerText = diak.SzuletesiDatum.substring(0, 9)
+    ujSor.appendChild(ujDatum)
+
     let ujMatek = document.createElement("td")
     ujMatek.innerText = diak.Matematika
     ujSor.appendChild(ujMatek)
