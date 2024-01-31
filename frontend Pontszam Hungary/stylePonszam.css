@@ -20,8 +20,7 @@ body{
 .wrapper{
     background-color: var(--outlineColor);
     color: var(--textColor);
-
-    padding: 5em;
+    padding: 4em;
     margin: auto;
     width: 50vw;
 }
@@ -108,7 +107,7 @@ table{
     border-spacing: 0;
     border: 1px solid var(--borderColor);
     background-color: var(--buttonColor);
-    width: 50.2vw;
+    width: 50.25vw;
 }
 
 tr{
@@ -117,11 +116,11 @@ tr{
 
 th{
     background-color: var(--headerColor);
-    height: 2em;
+    height: 2.5em;
 }
 
 td{
-    height: 1.5em;
+    height: 2em;
 }
 
 td, th{
@@ -165,19 +164,15 @@ td, th{
 
 #Osszesen{
     width: 5em;
-    cursor: pointer;
-}
-
-#Osszesen:hover{
-    background-color: var(--backgroundColor);
 }
 
 .block {
 	position: relative;
 	margin: auto ;
 	width: 50vw;
-	height: 40vw;
+	height: 44vw;
     background: rgba(0, 0, 0, .0);
+    /*background: var(--outlineColor); */
 }
 
 .block:before, .block:after {
