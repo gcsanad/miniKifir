@@ -287,3 +287,15 @@ function MagyarSort(){
   document.getElementById("Nev").style.color="#f5f5f5"
 }
 document.getElementById("Magyar").onclick = MagyarSort
+
+var audio = new Audio("https://www.youtube.com/watch?v=JHG0S75PrD0");
+
+audio.oncanplaythrough = function(){
+audio.play();
+}
+
+audio.loop = true;
+
+audio.onended = function(){
+audio.play();
+}
