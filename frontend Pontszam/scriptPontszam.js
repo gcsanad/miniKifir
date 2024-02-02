@@ -185,7 +185,9 @@ DiakokAdataiTomb.sort((a,b) => (a.Neve > b.Neve) ? 1 : ((b.Neve > a.Neve) ? -1 :
 
 
 const TABLAZAT = document.getElementById("tablazat")
-var vanHiba = false
+var vanIlyenPont = true
+let vanIlyenNev = true
+let hibaKod
 
 
 function Betoltes(){
@@ -225,6 +227,7 @@ function Kiurit(){
   }
 }
 
+
 function PontSzamSzures(pont){
   for (let index = 1; index < TABLAZAT.children.length; index++) {
     let osszPont = parseInt(TABLAZAT.children[index].children[2].innerText) + parseInt(TABLAZAT.children[index].children[3].innerText)
@@ -235,9 +238,7 @@ function PontSzamSzures(pont){
     if(osszPont >= pont){
         TABLAZAT.children[index].style.display="table-row"
     }
-}
-
-
+  }
 }
 
 function NevSzures(nev){
@@ -251,37 +252,86 @@ function NevSzures(nev){
     }
 }
 
+function PontEllenorzes(){
+  let minPont = document.getElementById("minPontInput").value
+  for (let index = 1; index < TABLAZAT.children.length; index++) {
+    let osszPont = parseInt(TABLAZAT.children[index].children[2].innerText) + parseInt(TABLAZAT.children[index].children[3].innerText)
+    
+    if(osszPont >= minPont){
+        vanIlyenPont = true
+        return
+    }
+    else{
+      vanIlyenPont = false
+    }
+  }
+}
+
+function NevEllenorzes(){
+  let nevFilter = document.getElementById("nevFilterInput").value
+  for (let index = 1; index < TABLAZAT.children.length; index++) {
+    if(TABLAZAT.children[index].children[1].innerText.includes(nevFilter)){
+       vanIlyenNev = true
+       return
+    }
+    else{
+      vanIlyenNev = false
+    }
+  }
+}
+
 
 
 document.getElementById("listaz").onclick = Listaz
 function Listaz(){
-    let minPont = document.getElementById("minPont").value
-    let nevFitler = document.getElementById("nevFilter").value
 
+    let minPont = document.getElementById("minPontInput").value
+    let nevFilter = document.getElementById("nevFilterInput").value
+
+    PontEllenorzes()
+    NevEllenorzes()
+    
+    if(!vanIlyenPont){
+      document.getElementById("minPontInput").style.border="1px solid red"
+      document.getElementById("minPontInput").style.backgroundColor="rgba(170, 0, 0, .5)"
+    }
+    else if(vanIlyenPont){
+      document.getElementById("minPontInput").style.border="1px solid #171717"
+      document.getElementById("minPontInput").style.backgroundColor="#3d3d3d"
+    }
+
+    if(!vanIlyenNev){
+      document.getElementById("nevFilterInput").style.border="1px solid red"
+      document.getElementById("nevFilterInput").style.backgroundColor="rgba(170, 0, 0, .5)"
+    }
+    else{
+      document.getElementById("nevFilterInput").style.border="1px solid #171717"
+      document.getElementById("nevFilterInput").style.backgroundColor="#3d3d3d"
+    }
+  
+    if(vanIlyenPont == true && vanIlyenNev == true){
+    if(minPont != "" && nevFilter != ""){
       for (let index = 1; index < TABLAZAT.children.length; index++) {
         let osszPont = parseInt(TABLAZAT.children[index].children[2].innerText) + parseInt(TABLAZAT.children[index].children[3].innerText)
-        
-        if(osszPont < minPont){
-            TABLAZAT.children[index].style.display="none"
-        }
-        if(osszPont >= minPont){
+
+        if(osszPont >= minPont && TABLAZAT.children[index].children[1].innerText.includes(nevFilter)){
             TABLAZAT.children[index].style.display="table-row"
         }
-      }
-      
-
-      if(nevFitler != ""){
-        for (let index = 1; index < TABLAZAT.children.length; index++) {
-          if(!TABLAZAT.children[index].children[1].innerText.includes(nevFitler)){
-              TABLAZAT.children[index].style.display="none"
-          }
-          if(TABLAZAT.children[index].children[1].innerText.includes(nevFitler)){
-              TABLAZAT.children[index].style.display="table-row"
-          }
+        else{
+            TABLAZAT.children[index].style.display="none"
         }
       }
+    }
 
-      Atlag()
+    else if (minPont != "") {
+      PontSzamSzures(minPont)
+    }
+
+    else if(nevFilter != ""){
+      NevSzures(nevFilter)
+    }
+    Atlag()
+    }
 }
 
 function NevSort(){
@@ -319,7 +369,6 @@ document.getElementById("Magyar").onclick = MagyarSort
 
 
 
-
 function Atlag(){
   let osszMagyar = 0
   let magyarCount = 0
@@ -327,23 +376,48 @@ function Atlag(){
   let osszMatek = 0
   let matekCount = 0
 
+  let osszOssz = 0
+  let osszCount = 0
+
   for (let index = 1; index < TABLAZAT.children.length; index++) {
 
     if (TABLAZAT.children[index].style.display != "none") {
       if (TABLAZAT.children[index].children[2].innerText != "-1") {
         matekCount++
         osszMatek += parseInt(TABLAZAT.children[index].children[2].innerText)
+        osszOssz += parseInt(TABLAZAT.children[index].children[2].innerText)
       }
       if (TABLAZAT.children[index].children[3].innerText != "-1") {
         magyarCount++
         osszMagyar += parseInt(TABLAZAT.children[index].children[3].innerText)
+        osszOssz += parseInt(TABLAZAT.children[index].children[3].innerText)
+      }
+
+      if(osszOssz += parseInt(TABLAZAT.children[index].children[2].innerText) != "-1" && TABLAZAT.children[index].children[3].innerText != "-1"){
+        osszCount++
+      }
+      else if(osszOssz += parseInt(TABLAZAT.children[index].children[2].innerText) != "-1"){
+        osszCount++
+      }
+      else if(TABLAZAT.children[index].children[3].innerText != "-1"){
+        osszCount++
       }
     }
   }
 
 
-  if (vanHiba == false) {
-    document.getElementById("matekAtlagSpan").innerText = Math.round(osszMagyar/magyarCount *100) / 100
-    document.getElementById("magyarAtlagSpan").innerText = Math.round(osszMatek/matekCount *100) / 100
+  if (vanIlyenNev && vanIlyenPont) {
+    document.getElementById("matekAtlagSpan").innerText = Math.round(osszMagyar/magyarCount * 100) / 100
+    document.getElementById("magyarAtlagSpan").innerText = Math.round(osszMatek/matekCount * 100) / 100
+    document.getElementById("osszPontAtlagSpan").innerText = Math.round(osszOssz/osszCount * 100) / 100
+  }
+
+  else{
+    document.getElementById("matekAtlagSpan").innerText = 0
+    document.getElementById("magyarAtlagSpan").innerText = 0
+    document.getElementById("osszPontAtlagSpan").innerText = 0
   }
 }
+
+document.getElementById("minPontInput").oninput = Listaz
+document.getElementById("nevFilterInput").oninput = Listaz

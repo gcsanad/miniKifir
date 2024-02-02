@@ -47,6 +47,7 @@ input{
     height: 1.5em;
     margin-right: 2em;
     margin-left: 1em;
+    border: 1px solid var(--borderColor);
 
     background-color: #3d3d3d;
     color: var(--textColor);
@@ -178,9 +179,14 @@ td, th{
 
 #matekAtlag{
     display: inline-block;
-    margin-right: 3em;
+    margin-right: 2em;
 }
 
 #magyarAtlag{
+    display: inline-block;
+    margin-right: 2em;
+}
+
+#osszPontAtlag{
     display: inline-block;
 }
