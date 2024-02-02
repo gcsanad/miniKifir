@@ -17,6 +17,8 @@ using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Text.Encodings.Web;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace Felvetelizok
 {
@@ -27,6 +29,8 @@ namespace Felvetelizok
     {
         internal ObservableCollection<Diak> diakok = new ObservableCollection<Diak>();
         internal int valasztottIndex;
+        private readonly string sqlKapcsolat = "datasource=127.0.0.1;port=3306;username=root;password=;database=minikozfelvir;";
+        private MySqlConnection connection;
         public MainWindow()
         {
             InitializeComponent();
@@ -197,5 +201,70 @@ namespace Felvetelizok
             }
         }
 
+        private void btnSqlImport_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                dgFelvetelizok.ItemsSource = "";
+                connection = new MySqlConnection(sqlKapcsolat);
+                connection.Open();
+
+                string lekerdezesString = "SELECT OM_azonosito,Nev,Email,Szuletesi_datum,Ertesitesi_cim,matek_eredmeny,magyar_eredmeny FROM felvetelizok";
+                MySqlCommand lekerdezes = new MySqlCommand(lekerdezesString, connection);
+                lekerdezes.CommandTimeout = 60;
+                MySqlDataReader reader = lekerdezes.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    
+                    while (reader.Read())
+                    {
+                        diakok.Add(new Diak(reader));
+                    }
+                    dgFelvetelizok.ItemsSource = diakok;
+                }
+                else
+                {
+                    MessageBox.Show("Nincs sor az SQL-ben!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
+
+        private void btnSqlExport_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                connection = new MySqlConnection(sqlKapcsolat);
+                connection.Open();
+                string torlesString = $"DELETE FROM felvetelizok";
+                MySqlCommand torlesLekerdezes = new MySqlCommand(torlesString, connection);
+                torlesLekerdezes.ExecuteNonQuery();
+
+
+                foreach (var diak in diakok.ToList())
+                {
+                    string lekerdezesString = $"INSERT INTO felvetelizok (OM_azonosito,Nev,Email,Szuletesi_datum,Ertesitesi_cim,matek_eredmeny,magyar_eredmeny) VALUES ('{diak.OM_Azonosito}', '{diak.Neve}', '{diak.Email}', '{diak.SzuletesiDatum.Year}-{diak.SzuletesiDatum.Month}-{diak.SzuletesiDatum.Day}', '{diak.ErtesitesiCime}', '{diak.Matematika}', '{diak.Magyar}')";
+                    MySqlCommand lekerdezes = new MySqlCommand(lekerdezesString, connection);
+                    lekerdezes.ExecuteNonQuery();
+                }
+                MessageBox.Show("Működik!");
+            }
+
+
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
     }
 }

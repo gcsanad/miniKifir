@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,6 +51,17 @@ namespace Felvetelizok
         {
             Matematika = -1;
             Magyar = -1;
+        }
+
+        public Diak(MySqlDataReader olvaso)
+        {
+            OM_Azonosito = olvaso.GetString(0);
+            Neve = olvaso.GetString(1);
+            Email = olvaso.GetString(2);
+            SzuletesiDatum =olvaso.GetDateTime(3);
+            ErtesitesiCime = olvaso.GetString(4);
+            Matematika = olvaso.GetString(5) != "NULL" ? Int32.Parse(olvaso.GetString(5)) : -1;
+            Magyar = olvaso.GetString(6) != "NULL" ? Int32.Parse(olvaso.GetString(6)) : -1;
         }
 
         public void ModositCSVSorral(String csvString)

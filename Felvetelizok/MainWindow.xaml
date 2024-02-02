@@ -74,6 +74,20 @@
                         </Style>
                     </Button.Resources>
                 </Button>
+                <Button Style="{DynamicResource ButtonStyle1}" Foreground="#f5f5f5" x:Name="btnSqlImport" Content="Sql Importálás" IsEnabled="True" Width="80" Height="20" FontSize="11" FontWeight="Bold" Margin="10" Click="btnSqlImport_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Style="{DynamicResource ButtonStyle1}" Foreground="#f5f5f5" x:Name="btnSqlExport" Content="Sql Exportálás" IsEnabled="True" Width="80" Height="20" FontSize="11" FontWeight="Bold" Margin="10" Click="btnSqlExport_Click" >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
         </Grid>
     </Viewbox>
