@@ -342,6 +342,7 @@ function NevSort(){
 
   document.getElementById("Matek").style.color="#f5f5f5"
   document.getElementById("Magyar").style.color="#f5f5f5"
+  Listaz()
 }
 document.getElementById("Nev").onclick = NevSort
 
@@ -353,6 +354,7 @@ function MatekSort(){
 
   document.getElementById("Nev").style.color="#f5f5f5"
   document.getElementById("Magyar").style.color="#f5f5f5"
+  Listaz()
 }
 document.getElementById("Matek").onclick = MatekSort
 
@@ -364,6 +366,7 @@ function MagyarSort(){
 
   document.getElementById("Matek").style.color="#f5f5f5"
   document.getElementById("Nev").style.color="#f5f5f5"
+  Listaz()
 }
 document.getElementById("Magyar").onclick = MagyarSort
 
