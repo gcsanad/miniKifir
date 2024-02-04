@@ -60,8 +60,8 @@ namespace Felvetelizok
             Email = olvaso.GetString(2);
             SzuletesiDatum =olvaso.GetDateTime(3);
             ErtesitesiCime = olvaso.GetString(4);
-            Matematika = olvaso.GetString(5) != "NULL" ? Int32.Parse(olvaso.GetString(5)) : -1;
-            Magyar = olvaso.GetString(6) != "NULL" ? Int32.Parse(olvaso.GetString(6)) : -1;
+            Matematika = olvaso.GetSByte(5);
+            Magyar = olvaso.GetSByte(6);
         }
 
         public void ModositCSVSorral(String csvString)

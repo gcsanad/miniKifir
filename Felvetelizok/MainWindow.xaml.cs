@@ -19,6 +19,7 @@ using System.Text.Json;
 using System.Text.Encodings.Web;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 
 namespace Felvetelizok
 {
@@ -29,7 +30,7 @@ namespace Felvetelizok
     {
         internal ObservableCollection<Diak> diakok = new ObservableCollection<Diak>();
         internal int valasztottIndex;
-        private readonly string sqlKapcsolat = "datasource=127.0.0.1;port=3306;username=root;password=;database=minikozfelvir;";
+        private readonly string sqlKapcsolat = "datasource=127.0.0.1;port=3306;username=root;password=;database=miniKozfelvir;";
         private MySqlConnection connection;
         public MainWindow()
         {
@@ -213,20 +214,54 @@ namespace Felvetelizok
                 MySqlCommand lekerdezes = new MySqlCommand(lekerdezesString, connection);
                 lekerdezes.CommandTimeout = 60;
                 MySqlDataReader reader = lekerdezes.ExecuteReader();
-                if (reader.HasRows)
+                if (diakok.Count == 0)
                 {
-                    
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-                        diakok.Add(new Diak(reader));
+                    
+                        while (reader.Read())
+                        {
+                            diakok.Add(new Diak(reader));
+                        }
+                        dgFelvetelizok.ItemsSource = diakok;
                     }
-                    dgFelvetelizok.ItemsSource = diakok;
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Nincs sor az SQL-ben!");
-                }
+                    var Result = MessageBox.Show("Már van importálva tábla! \n Lecserélni vagy hozzárendelni szeretnéd? \n (igen = csere | nem = hozzáad)", "Figyelem!", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
+                    if (Result == MessageBoxResult.Yes)
+                    {
+                        diakok.Clear();
+                        if (reader.HasRows)
+                        {
+
+                            while (reader.Read())
+                            {
+                                diakok.Add(new Diak(reader));
+                            }
+                            dgFelvetelizok.ItemsSource = diakok;
+                        }
+                    }
+                    else if (Result == MessageBoxResult.No)
+                    {
+                        if (reader.HasRows)
+                        {
+
+                            while (reader.Read())
+                            {
+                                diakok.Add(new Diak(reader));
+                            }
+                            dgFelvetelizok.ItemsSource = diakok;
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                MessageBox.Show("Sikeres importálás SQL adatbázisból!");
             }
             catch (Exception ex)
             {
@@ -254,7 +289,7 @@ namespace Felvetelizok
                     MySqlCommand lekerdezes = new MySqlCommand(lekerdezesString, connection);
                     lekerdezes.ExecuteNonQuery();
                 }
-                MessageBox.Show("Működik!");
+                MessageBox.Show("Sikeres exportálás SQL adatbázisba!");
             }
 
 
