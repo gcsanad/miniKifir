@@ -84,19 +84,21 @@ button{
   }
 
   /*animacio 1*/
-  /*
+  
   html {
     min-height:100%;
     background: 
-     linear-gradient(red 0%, white 10%, green 20%, white 30%, red 40%, white 50%, red 60%, white 70%, green 80%, white 90%, red 100%) 
-     0 0/100% 200%;
-     animation: a 5s linear infinite;
-  }
+     /* linear-gradient(red 0%, white 10%, green 20%, white 30%, red 40%, white 50%, red 60%, white 70%, green 80%, white 90%, red 100%) 
+     0 0/100% 200%; */
+     linear-gradient(red 0%, orange 10%, yellow 20%, yellowgreen 30%, lightgreen 40% ,green 50%, cyan 60%, blue 70%, purple 80%, magenta 90%, rgb(255, 0, 0) 100%)0 0/100% 200%;
+     animation: a 1s linear infinite;
+    
+    }
   
   @keyframes a {
     to {background-position:0 -200%}
   }
-  */
+ 
 
 /*animacio 2*/
   /*
