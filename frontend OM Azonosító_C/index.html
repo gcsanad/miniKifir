@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om_Azonosító alapján</title>
+    <link rel="stylesheet" href="styleOM.css">
+    <script defer src="js.js"></script>
+    
+</head>
+<body>
+    <div class="wrapperOM">
+        <div class="cim"><span>OM Azonosító:</span><input type="text" id="selOmAzonosito" oninput="Kereses()"></div>  
+        <div id="kiiratas">
+            <table id="OMtablazat" class="center">
+                <tr>
+                    <th id="elso_OM">OM</th>
+                    <th id="elso_Nev">Név</th>
+                    <th id="elso_Email">Email</th>
+                    <th id="elso_Ertesitesi">Értesítési cím</th>
+                    <th id="elso_Szuletesi">Születési dátum</th>
+                    <th id="elso_Matek">Matek</th>
+                    <th id="elso_Magyar">Magyar</th>
+                    <th id="elso_Osszesen">Összesen</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="wrapperTablazat">
+        <span class="cim">Több vagy egyenlő pontszámú a kiválasztott diákénál:</span>
+        <table id="tablazat" class="center">
+            <tr>
+                <th id="OM">OM</th>
+                <th id="Nev">Név</th>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>

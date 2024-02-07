@@ -1,0 +1,250 @@
+
+/*OM_Azonosító*/
+body {
+    background-color: #272727;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p{
+    color: white;
+    font-size: 20px;
+    
+  }
+  
+  .wrapperOM{
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    margin-left: 12vw;
+    
+  }
+  
+  span{
+  color: #b8b8b8;
+  font-size: 21px;
+}
+
+.cim{
+  display: inline-block;
+  margin: 0 auto;
+  
+}
+
+#selOmAzonosito {
+  position: relative;
+  width: 6vw;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #111;
+  color: #999;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 5px;
+  margin: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  height: 3vh;
+}
+
+#osszesKeresesGomb {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(#464d55, #25292e);
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 18px;
+  height: 45px;
+  line-height: 1;
+  display:block;
+  margin: 15px auto;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  touch-action: manipulation;
+}
+
+#osszesKeresesGomb:hover {
+  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+  opacity: .85;
+}
+
+#osszesKeresesGomb:active {
+  outline: 0;
+}
+
+#osszesKeresesGomb:focus {
+  box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+}
+
+@media (max-width: 420px) {
+  #osszesKeresesGomb {
+    height: 48px;
+  }
+}
+.kivalasztott{
+  background-color: green;
+}
+#kiiratas, #tablazat {
+  position: relative;
+	margin: 70px auto 0;
+	width: fit-content;
+	height: fit-content;
+	background: linear-gradient(0deg, #000, #272727);
+  padding: 10px;
+}
+#tablazat {
+  position: relative;
+	margin: 70px auto 0;
+	width: 500px;
+	height: 250px;
+	background: linear-gradient(0deg, #000, #272727);
+  padding: 10px;
+}
+
+#kiiratas:before, #kiiratas:after, #tablazat:before, #tablazat:after {
+  content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(180deg, red, white, green);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+    background-position: 0 0;
+	}
+}
+
+#kiiratas:after,#tablazat:after {
+	filter: blur(50px);
+}
+
+
+
+
+/*Táblázat*/
+:root{
+  --textColor: #f5f5f5;
+  --backgroundColor: #212121;   /*sotet*/
+  --outlineColor: #3d3d3d;      /*kozepesen sötét*/
+  --buttonColor: #525252;    /*legkevésébé sötét*/
+  --borderColor: #171717;       /*legsotettebb*/
+  --headerColor: #333333;
+
+  --tableAlteringColorLight: #5c5c5c;
+  --tableAlteringColorDark: #474747;
+}
+
+
+.wrapperTablazat{
+  color: var(--textColor);
+  padding: 4em;
+  margin: auto;
+}
+
+table{
+  border-spacing: 0;
+  border: 1px solid var(--borderColor);
+  background-color: var(--buttonColor);
+  width: 30vw;
+}
+
+tr{
+  background-color: var(--buttonColor);
+}
+
+th{
+  background-color: var(--headerColor);
+  color: white;
+  height: 2.5em;
+}
+
+td{
+  height: 2em;
+  color: white;
+}
+
+td, th{
+  border-left: 1px solid var(--borderColor);
+  border-right: 1px solid var(--borderColor);
+  border-bottom: 1px solid var(--borderColor);
+  text-align: center;
+  width: 2vh;
+}
+
+#Nev{
+  cursor: pointer;
+}
+
+#Nev:hover{
+  background-color: var(--backgroundColor);
+}
+
+
+#elso_OM{
+  width: 7em;
+}
+
+#elso_Nev{
+  width: 9em;
+  cursor: pointer;
+}
+
+#elso_Nev:hover{
+  background-color: var(--backgroundColor);
+}
+
+
+#elso_Matek{
+  width: 4em;
+  cursor: pointer;
+}
+
+#elso_Matek:hover{
+  background-color: var(--backgroundColor);
+}
+
+#elso_Magyar{
+  width: 4em;
+  cursor: pointer;
+}
+
+#elso_Magyar:hover{
+  background-color: var(--backgroundColor);
+}
+
+#elso_Osszesen{
+  width: 5em;
+  cursor: pointer;
+}
+
+#elso_Osszesen:hover{
+  background-color: var(--backgroundColor);
+}
+
