@@ -19,7 +19,9 @@ body{
 }
 
 .wrapper{
-    background-color: var(--outlineColor);
+    /*background-color: var(--outlineColor);*/
+    background-image: linear-gradient(to bottom right, #3d3d3d, #303030);
+    
     color: var(--textColor);
     border:2px solid var(--borderColor);
     border-radius: 10px;
