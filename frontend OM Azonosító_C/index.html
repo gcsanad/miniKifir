@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Om_Azonosító alapján</title>
-    <link rel="stylesheet" href="styleOM.css">
+    <link rel="stylesheet" href="styleOMResponsive.css">
     <script defer src="js.js"></script>
-    
+
 </head>
+
 <body>
+    <input type="input" id="selOmAzonosito" placeholder="OM Azonosító:" oninput="Kereses()">
     <div class="wrapperOM">
-        <div class="cim"><span>OM Azonosító:</span><input type="text" id="selOmAzonosito" oninput="Kereses()"></div>  
         <div id="kiiratas">
             <table id="OMtablazat" class="center">
                 <tr>
@@ -27,7 +29,7 @@
         </div>
     </div>
     <div class="wrapperTablazat">
-        <span class="cim">Több vagy egyenlő pontszámú a kiválasztott diákénál:</span>
+        <span class="masodikCim">Több vagy egyenlő pontszámú a kiválasztott diákénál:</span>
         <table id="tablazat" class="center">
             <tr>
                 <th id="OM">OM</th>
@@ -35,6 +37,7 @@
             </tr>
         </table>
     </div>
-    
+
 </body>
+
 </html>
