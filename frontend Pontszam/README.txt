@@ -1,0 +1,1 @@
+A weboldal minimum szélessége :  420px
