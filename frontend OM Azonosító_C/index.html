@@ -12,7 +12,11 @@
 
 <body>
     <div class="teljesWrapper">
-        <input type="input" id="selOmAzonosito" placeholder="OM Azonosító:" oninput="Kereses()">
+        <input type="text" id="selOmAzonosito" onkeypress="return /[0-9]/i.test(event.key)" placeholder="OM Azonosító" name="om" class="inputCucc"  maxlength="11" oninput="Kereses()">
+        <span>Listában lévő elemek száma: <span id="listabanElemek"></span></span>
+        <span>Matek pontok átlaga: <span id="matekOssz"></span></span>
+        <span>Magyar pontok átlaga: <span id="magyOssz"></span></span>
+        <span>Összpontok áltaga: <span id="osszAtl"></span></span>
         <div class="wrapperOM">
             <div id="kiiratas">
                 <table id="OMtablazat" class="center">
@@ -24,7 +28,6 @@
                         <th id="elso_Szuletesi">Születési dátum</th>
                         <th id="elso_Matek">Matek</th>
                         <th id="elso_Magyar">Magyar</th>
-                        <th id="elso_Osszesen">Összesen</th>
                     </tr>
                 </table>
             </div>

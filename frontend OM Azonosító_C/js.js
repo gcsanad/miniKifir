@@ -1,93 +1,183 @@
 let diakok = [
   {
     "OM_Azonosito": "01234567890",
-    "Neve": "Török Lilla",
-    "Email": "torok.lilla@email.com",
-    "SzuletesiDatum": "1997-06-14T00:00:00",
-    "ErtesitesiCime": "Hódmezővásárhely, Kossuth Lajos tér 5.",
-    "Matematika": 38,
+    "Neve": "Balogh Andrea",
+    "Email": "balogh.andrea@example.com",
+    "SzuletesiDatum": "1999-03-03T00:00:00",
+    "ErtesitesiCime": "Székesfehérvár, Eper utca 707",
+    "Matematika": 48,
+    "Magyar": 42
+  },
+  {
+    "OM_Azonosito": "01234987654",
+    "Neve": "Balogh Tamás",
+    "Email": "balogh.tamas@example.com",
+    "SzuletesiDatum": "2000-04-25T00:00:00",
+    "ErtesitesiCime": "Székesfehérvár, Cseresznyefa utca 12",
+    "Matematika": 40,
     "Magyar": 50
+  },
+  {
+    "OM_Azonosito": "12345098765",
+    "Neve": "Király Gergő",
+    "Email": "kiraly.gergo@example.com",
+    "SzuletesiDatum": "1994-02-28T00:00:00",
+    "ErtesitesiCime": "Budapest, Áfonya utca 12",
+    "Matematika": 35,
+    "Magyar": 45
   },
   {
     "OM_Azonosito": "12345678901",
-    "Neve": "Szőke Balázs",
-    "Email": "szoke.balazs@email.com",
-    "SzuletesiDatum": "1998-01-29T00:00:00",
-    "ErtesitesiCime": "Zalaegerszeg, Szabó utca 23.",
-    "Matematika": 44,
-    "Magyar": 50
+    "Neve": "Kovács Péter",
+    "Email": "kovacs.peter@example.com",
+    "SzuletesiDatum": "1995-05-15T00:00:00",
+    "ErtesitesiCime": "Budapest, Körte utca 123",
+    "Matematika": 45,
+    "Magyar": 35
+  },
+  {
+    "OM_Azonosito": "23456109876",
+    "Neve": "Nagy Zsolt",
+    "Email": "nagy.zsolt@example.com",
+    "SzuletesiDatum": "1997-09-05T00:00:00",
+    "ErtesitesiCime": "Debrecen, Barackvirág utca 56",
+    "Matematika": 0,
+    "Magyar": 30
   },
   {
     "OM_Azonosito": "23456789012",
-    "Neve": "Balogh Attila",
-    "Email": "balogh.attila@email.com",
-    "SzuletesiDatum": "1992-04-08T00:00:00",
-    "ErtesitesiCime": "Veszprém, Ady Endre utca 14.",
-    "Matematika": 43,
+    "Neve": "Nagy Anna",
+    "Email": "nagy.anna@example.com",
+    "SzuletesiDatum": "1998-08-22T00:00:00",
+    "ErtesitesiCime": "Debrecen, Alma utca 456",
+    "Matematika": 30,
+    "Magyar": 20
+  },
+  {
+    "OM_Azonosito": "34567210987",
+    "Neve": "Kiss Eszter",
+    "Email": "kiss.eszter@example.com",
+    "SzuletesiDatum": "1991-11-17T00:00:00",
+    "ErtesitesiCime": "Szeged, Diófa utca 34",
+    "Matematika": 40,
     "Magyar": 48
   },
   {
     "OM_Azonosito": "34567890123",
-    "Neve": "Király Eszter",
-    "Email": "kiraly.eszter@email.com",
-    "SzuletesiDatum": "1994-09-17T00:00:00",
-    "ErtesitesiCime": "Székesfehérvár, Szabadság tér 7.",
+    "Neve": "Kiss Gábor",
+    "Email": "kiss.gabor@example.com",
+    "SzuletesiDatum": "1990-12-01T00:00:00",
+    "ErtesitesiCime": "Szeged, Szilva utca 789",
     "Matematika": 50,
-    "Magyar": -1
+    "Magyar": 40
+  },
+  {
+    "OM_Azonosito": "45678321098",
+    "Neve": "Tóth Attila",
+    "Email": "toth.attila@example.com",
+    "SzuletesiDatum": "1998-06-23T00:00:00",
+    "ErtesitesiCime": "Pécs, Málna utca 78",
+    "Matematika": 42,
+    "Magyar": 37
   },
   {
     "OM_Azonosito": "45678901234",
-    "Neve": "Takács Ferenc",
-    "Email": "takacs.ferenc@email.com",
-    "SzuletesiDatum": "1996-12-25T00:00:00",
-    "ErtesitesiCime": "Szolnok, Kossuth utca 10.",
-    "Matematika": 37,
-    "Magyar": 42
+    "Neve": "Tóth Erika",
+    "Email": "toth.erika@example.com",
+    "SzuletesiDatum": "1993-04-10T00:00:00",
+    "ErtesitesiCime": "Pécs, Körte utca 101",
+    "Matematika": 40,
+    "Magyar": 0
   },
   {
     "OM_Azonosito": "56789012345",
-    "Neve": "Fehér Anita",
-    "Email": "feher.anita@email.com",
-    "SzuletesiDatum": "1990-02-03T00:00:00",
-    "ErtesitesiCime": "Tatabánya, Bajnai út 18.",
-    "Matematika": -1,
-    "Magyar": 49
+    "Neve": "Molnár János",
+    "Email": "molnar.janos@example.com",
+    "SzuletesiDatum": "1997-06-28T00:00:00",
+    "ErtesitesiCime": "Szombathely, Barack utca 202",
+    "Matematika": 0,
+    "Magyar": 30
+  },
+  {
+    "OM_Azonosito": "56789432109",
+    "Neve": "Molnár Judit",
+    "Email": "molnar.judit@example.com",
+    "SzuletesiDatum": "1993-03-08T00:00:00",
+    "ErtesitesiCime": "Szombathely, Füge utca 90",
+    "Matematika": 38,
+    "Magyar": 0
   },
   {
     "OM_Azonosito": "67890123456",
-    "Neve": "Mészáros Tamás",
-    "Email": "meszaros.tamas@email.com",
-    "SzuletesiDatum": "1993-05-20T00:00:00",
-    "ErtesitesiCime": "Salgótarján, Rákóczi út 25.",
-    "Matematika": 50,
-    "Magyar": 35
-  },
-  {
-    "OM_Azonosito": "78901234567",
-    "Neve": "Csonka Zoltán",
-    "Email": "csonka.zoltan@email.com",
-    "SzuletesiDatum": "1995-08-12T00:00:00",
-    "ErtesitesiCime": "Esztergom, Dózsa György út 9.",
-    "Matematika": 45,
+    "Neve": "Horváth Judit",
+    "Email": "horvath.judit@example.com",
+    "SzuletesiDatum": "1994-09-17T00:00:00",
+    "ErtesitesiCime": "Győr, Meggy utca 303",
+    "Matematika": 35,
     "Magyar": 50
   },
   {
-    "OM_Azonosito": "89012345678",
-    "Neve": "Lakatos Katalin",
-    "Email": "lakatos.katalin@email.com",
-    "SzuletesiDatum": "1988-11-27T00:00:00",
-    "ErtesitesiCime": "Keszthely, Fő tér 12.",
+    "OM_Azonosito": "67890543210",
+    "Neve": "Horváth Gábor",
+    "Email": "horvath.gabor@example.com",
+    "SzuletesiDatum": "1996-08-14T00:00:00",
+    "ErtesitesiCime": "Győr, Mézvirág utca 23",
+    "Matematika": 47,
+    "Magyar": 29
+  },
+  {
+    "OM_Azonosito": "78901234567",
+    "Neve": "Szabó István",
+    "Email": "szabo.istvan@example.com",
+    "SzuletesiDatum": "1996-01-05T00:00:00",
+    "ErtesitesiCime": "Miskolc, Dió utca 404",
+    "Matematika": 45,
+    "Magyar": 25
+  },
+  {
+    "OM_Azonosito": "78901654321",
+    "Neve": "Szabó Eszter",
+    "Email": "szabo.eszter@example.com",
+    "SzuletesiDatum": "1992-01-30T00:00:00",
+    "ErtesitesiCime": "Miskolc, Bodza utca 45",
     "Matematika": 49,
-    "Magyar": 46
+    "Magyar": 42
+  },
+  {
+    "OM_Azonosito": "89012345678",
+    "Neve": "Varga Zsófia",
+    "Email": "varga.zsofia@example.com",
+    "SzuletesiDatum": "1992-11-20T00:00:00",
+    "ErtesitesiCime": "Nyíregyháza, Cseresznye utca 505",
+    "Matematika": 50,
+    "Magyar": 30
+  },
+  {
+    "OM_Azonosito": "89012765432",
+    "Neve": "Varga Attila",
+    "Email": "varga.attila@example.com",
+    "SzuletesiDatum": "1988-05-19T00:00:00",
+    "ErtesitesiCime": "Nyíregyháza, Meggyfa utca 67",
+    "Matematika": 0,
+    "Magyar": 36
   },
   {
     "OM_Azonosito": "90123456789",
-    "Neve": "Simon Gergő",
-    "Email": "simon.gergo@email.com",
-    "SzuletesiDatum": "2010-06-25T00:00:00",
-    "ErtesitesiCime": "Szeksárd, Béla út 7.",
-    "Matematika": 50,
-    "Magyar": 40
+    "Neve": "Fekete Balázs",
+    "Email": "fekete.balazs@example.com",
+    "SzuletesiDatum": "1989-07-12T00:00:00",
+    "ErtesitesiCime": "Kecskemét, Sárgabarack utca 606",
+    "Matematika": 0,
+    "Magyar": 28
+  },
+  {
+    "OM_Azonosito": "90123876543",
+    "Neve": "Fekete Zsuzsa",
+    "Email": "fekete.zsuzsa@example.com",
+    "SzuletesiDatum": "1995-10-11T00:00:00",
+    "ErtesitesiCime": "Kecskemét, Szeder utca 89",
+    "Matematika": 32,
+    "Magyar": 47
   },
   {
     "OM_Azonosito": "43225435452",
@@ -101,11 +191,18 @@ let diakok = [
 ]
 const TABLAZAT = document.getElementById("tablazat")
 const OMTABLAZAT = document.getElementById("OMtablazat")
-let magyAtlag;
-let matAtlag;
+let listabanLevoElemek = 0;
+let magyAtlag = 0;
+let matAtlag = 0;
+let osszAtlag = 0;
+
 var inputText = document.getElementById("selOmAzonosito");
 
 function Kereses() {
+  listabanLevoElemek = 0
+  magyAtlag = 0
+  matAtlag = 0
+  osszAtlag = 0
   OMTABLAZAT.innerHTML = ""
   OMTABLAZAT.innerHTML = `<tr>
                           <th id="elso_OM">OM</th>
@@ -115,7 +212,6 @@ function Kereses() {
                           <th id="elso_Szuletesi">Születési dátum</th>
                           <th id="elso_Matek">Matek</th>
                           <th id="elso_Magyar">Magyar</th>
-                          <th id="elso_Osszesen">Összesen</th>
                           </tr>`
 
   for (const diak of diakok) {
@@ -127,8 +223,11 @@ function Kereses() {
       <td>${diak.ErtesitesiCime}</td>
       <td>${diak.SzuletesiDatum.substring(0, 10)}</td>
       <td>${diak.Matematika}</td>
-      <td>${diak.Magyar}</td>
-      <td>${diak.Matematika + diak.Magyar}</td>`
+      <td>${diak.Magyar}</td>`
+      listabanLevoElemek++
+      magyAtlag += parseInt(diak.Magyar)
+      matAtlag += parseInt(diak.Matematika)
+      osszAtlag += parseInt(diak.Magyar) + parseInt(diak.Matematika)
       ujSor.addEventListener('click', (event) => {
 
         const TREK = document.querySelectorAll("tr");
@@ -140,13 +239,13 @@ function Kereses() {
         event.target.parentElement.id = "lekeres"
 
         let kivalasztottLekerese = document.getElementById("lekeres");
-
+        console.log(parseInt(kivalasztottLekerese.getElementsByTagName("td")[5].innerHTML) + parseInt(kivalasztottLekerese.getElementsByTagName("td")[6].innerHTML))
         if (TABLAZAT.children.length > 1) {
           while (TABLAZAT.children.length > 1) {
             TABLAZAT.removeChild(TABLAZAT.lastChild)
           }
           for (const diak of diakok) {
-            if (diak.Magyar + diak.Matematika >= parseInt(kivalasztottLekerese.getElementsByTagName("td")[7]) && diak.OM_Azonosito != kivalasztottLekerese.getElementsByTagName("td")[0]) {
+            if (diak.Magyar + diak.Matematika >= parseInt(kivalasztottLekerese.getElementsByTagName("td")[5].innerHTML) + parseInt(kivalasztottLekerese.getElementsByTagName("td")[6].innerHTML) && diak.OM_Azonosito != kivalasztottLekerese.getElementsByTagName("td")[0].innerHTML) {
               let ujSor = document.createElement("tr")
 
               let ujOM = document.createElement("td")
@@ -162,8 +261,9 @@ function Kereses() {
           }
         }
         else {
+
           for (const diak of diakok) {
-            if (diak.Magyar + diak.Matematika >= parseInt(kivalasztottLekerese.getElementsByTagName("td")[7]) && diak.OM_Azonosito != kivalasztottLekerese.getElementsByTagName("td")[0]) {
+            if (diak.Magyar + diak.Matematika >= parseInt(kivalasztottLekerese.getElementsByTagName("td")[5].innerHTML) + parseInt(kivalasztottLekerese.getElementsByTagName("td")[6].innerHTML) && diak.OM_Azonosito != kivalasztottLekerese.getElementsByTagName("td")[0].innerHTML) {
               let ujSor = document.createElement("tr")
 
               let ujOM = document.createElement("td")
@@ -187,9 +287,24 @@ function Kereses() {
 
 
     }
-  }
 
-  //Több vagy egyenlő pontszámú táblázat
+  }
+  magyAtlag = Math.round(magyAtlag / listabanLevoElemek*10)/10
+  matAtlag = Math.round(matAtlag / listabanLevoElemek*10)/10
+  osszAtlag = Math.round(osszAtlag / listabanLevoElemek*10)/10
+  if (isNaN(matAtlag)) {
+    document.getElementById("listabanElemek").innerHTML = listabanLevoElemek
+    document.getElementById("matekOssz").innerHTML = ""
+    document.getElementById("magyOssz").innerHTML = ""
+    document.getElementById("osszAtl").innerHTML = ""
+  }
+  else {
+    document.getElementById("listabanElemek").innerHTML = listabanLevoElemek
+    document.getElementById("matekOssz").innerHTML = matAtlag
+    document.getElementById("magyOssz").innerHTML = magyAtlag
+    document.getElementById("osszAtl").innerHTML = osszAtlag
+
+  }
 
 }
 
