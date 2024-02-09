@@ -27,7 +27,7 @@ body{
     padding: 2vw;
     padding-bottom: 1.2vw;
     box-sizing: border-box;
-    margin: 3vh 2vw 0 2vw;
+    margin: 2.5vh 2vw 2.5vh 2vw;
 
     display: flex;
     flex-direction: column;
@@ -83,6 +83,7 @@ input{
 
 #nevFilterInput{
     width: 20vw;
+    min-width: 150px;
 }
 
 
@@ -113,6 +114,8 @@ th{
     height: 3.5vh;
 }
 
+
+
 td{
     height: 2.5vh;
 }
@@ -131,6 +134,8 @@ button{
     width: 11vw;
     height: 6vh;
     margin-top: 1.2vw;
+    min-width: 150px;
+    min-height: 40px;
 
     color: var(--textColor);
     background-color: var(--tableAlteringColorLight);
@@ -176,3 +181,30 @@ button{
 #Osszesen:hover{
     background-color: var(--backgroundColor);
 }
+
+
+
+
+@media (max-width: 500px) {
+    #Matek, #Magyar, #Osszesen {
+      font-size: 0.95rem;
+    }
+
+    #adatbevitel{
+        font-size: 1.05rem;
+    }
+  }
+
+@media (min-width: 900px) {
+    #Matek, #Magyar, #Osszesen {
+      font-size: 1rem;
+    }
+
+    #adatbevitel{
+        font-size: 1.2rem;
+    }
+
+    td{
+        font-size: 1.1rem;
+    }
+  }
