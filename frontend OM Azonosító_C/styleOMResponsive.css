@@ -1,8 +1,27 @@
 :root {
-    --primary: #11998e;
+    --primary: #0a7269;
     --secondary: #38ef7d;
     --white: #fff;
     --gray: #9b9b9b;
+
+    /*Második táblázathoz*/
+    --textColor: #f5f5f5;
+    --backgroundColor: #212121;
+
+    /*sotet*/
+    --outlineColor: #3d3d3d;
+
+    /*kozepesen sötét*/
+    --buttonColor: #525252;
+
+    /*legkevésébé sötét*/
+    --borderColor: #171717;
+
+    /*legsotettebb*/
+    --headerColor: #333333;
+
+    --tableAlteringColorLight: #5c5c5c;
+    --tableAlteringColorDark: #474747;
 }
 
 
@@ -16,15 +35,69 @@ body {
     align-items: center;
 }
 
-.wrapperOM {
+.teljesWrapper{
     display: flex;
-    margin: 3vw;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    margin: 5vw;
 }
+
+
 
 .masodikCim {
     color: #b8b8b8;
     font-size: 1.3rem;
+    align-self: center;
 }
 
+.kivalasztott {
+    background-color: var(--primary);
+}
+
+
+#kiiratas,
+#tablazat {
+    
+    flex-direction: column;
+    position: relative;
+    margin:auto;
+    width: fit-content;
+    height: fit-content;
+    background: linear-gradient(0deg, #000, #272727);
+    padding: 10px;
+}
+
+.wrapperTablazat{
+    color: var(--textColor);
+    margin-top: 5vw;
+  }
+  
+  table{
+    border-spacing: 0;
+    border: 1px solid var(--borderColor);
+    background-color: var(--buttonColor);
+  }
+  
+  tr{
+    background-color: var(--buttonColor);
+  }
+  
+  th{
+    background-color: var(--headerColor);
+    color: white;
+    height: 2.5em;
+  }
+  
+  td{
+    height: 2em;
+    color: white;
+  }
+  
+  td, th{
+    border-left: 1px solid var(--borderColor);
+    border-right: 1px solid var(--borderColor);
+    border-bottom: 1px solid var(--borderColor);
+    text-align: center;
+    width: 20vh;
+  }
