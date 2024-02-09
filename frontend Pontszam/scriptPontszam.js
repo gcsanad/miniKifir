@@ -421,3 +421,32 @@ function Atlag(){
 
 document.getElementById("minPontInput").oninput = Listaz
 document.getElementById("nevFilterInput").oninput = Listaz
+
+
+function CSV(){
+  let CSVRows = []
+  let csvRow = ["OM Azonosito","Nev","Matek","Magyar","OsszPont"]
+  CSVRows.push(csvRow)
+
+  for (let index = 1; index < TABLAZAT.children.length; index++) {
+    if (TABLAZAT.children[index].style.display != "none") {
+      let osszPont = parseInt(TABLAZAT.children[index].children[2].innerText) + parseInt(TABLAZAT.children[index].children[3].innerText)
+
+      csvRow = [TABLAZAT.children[index].children[0].innerText, TABLAZAT.children[index].children[1].innerText, TABLAZAT.children[index].children[2].innerText, TABLAZAT.children[index].children[3].innerText, osszPont]
+      CSVRows.push(csvRow)
+    }
+    
+  }
+
+  let csvContent = "data:text/csv;charset=utf-8," + CSVRows.map(e => e.join(",")).join("\n");
+
+  var encodedUri = encodeURI(csvContent);
+  var link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "felvatelizok_adatai.csv");
+  document.body.appendChild(link);
+
+  link.click();
+}
+
+document.getElementsByTagName("button")[0].onclick = CSV
