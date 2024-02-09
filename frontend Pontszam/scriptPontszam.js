@@ -280,9 +280,6 @@ function NevEllenorzes(){
   }
 }
 
-
-
-document.getElementById("listaz").onclick = Listaz
 function Listaz(){
 
     let minPont = document.getElementById("minPontInput").value
